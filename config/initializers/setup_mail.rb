@@ -1,11 +1,11 @@
 ActionMailer::Base.smtp_settings = {
-         :address                      => "192.168.10.4",
+         :address                      => "smtp.gmail.com",
          :port                            => 587,
-         :domain                      => "webnish-main",
-         :user_name                => "vipul@webnish.com",
-         :password                  => "vipul123",
+         :domain                      => "smtp.gmail.com",
+         :user_name                => "mailtohay@gmail.com",
+         :password                  => "mail_to_hay",
          :authentication           => "plain",
-         :enable_starttls_auto  => false
+         :enable_starttls_auto  => true
          }
 
  ActionMailer::Base.default_url_options[:host] = "localhost:3000"
