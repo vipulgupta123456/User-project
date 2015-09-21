@@ -9,6 +9,7 @@ before_filter :save_login_state, :only => [:login, :login_attempt]
     if authorized_user
       flash[:notice] = "Wow Welcome again, you logged in as #{authorized_user.username}"
       render "home"
+       UserMailer.welcome_email(authorized_user).deliver
     else
       flash[:notice] = "Invalid Username or Password"
       flash[:color]= "invalid"

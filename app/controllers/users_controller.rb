@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     	puts "abc"
       flash[:notice] = "You signed up successfully"
       flash[:color]= "valid"
+       UserMailer.welcome_email(@user).deliver
     else
       flash[:notice] = "Form is invalid"
       flash[:color]= "invalid"
