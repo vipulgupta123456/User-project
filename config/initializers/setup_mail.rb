@@ -5,8 +5,7 @@ ActionMailer::Base.smtp_settings = {
          :user_name                => "vipul@webnish.com",
          :password                  => "vipul123",
          :authentication           => "plain",
-         :enable_starttls_auto  => true
+         :enable_starttls_auto  => false
          }
 
  ActionMailer::Base.default_url_options[:host] = "localhost:3000"
-Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
