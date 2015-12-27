@@ -37,4 +37,4 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+  gem 'byebug', '~> 8.2', '>= 8.2.1'
