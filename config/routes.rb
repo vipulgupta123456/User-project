@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
  
 
+  get 'password_resets/new'
+
   resources :phones
 
   resources :sessions
+  resources :password_resets
   get 'sessions/login', to: 'sessions#login', as: 'login'
  get 'sessions/logout', to: 'sessions#logout', as: 'logout'
   get 'sessions/home', to: 'sessions#home', as: 'home'
