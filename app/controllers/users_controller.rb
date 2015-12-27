@@ -10,14 +10,16 @@ class UsersController < ApplicationController
       flash[:notice] = "You signed up successfully"
       flash[:color]= "valid"
        UserMailer.welcome_email(@user).deliver
+	   redirect_to :controller => "sessions", :action => "login"
     else
       flash[:notice] = "Form is invalid"
       flash[:color]= "invalid"
-    end
-    render "new"
-       end
+        render "new"
+    
+end
+	end
      private
    def user_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :username, :email, :password, :password_confirmation)
     end
 end

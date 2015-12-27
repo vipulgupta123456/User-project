@@ -1,3 +1,7 @@
-<h1>Sessions#home,</h1>
-<p>Find me in app/views/sessions/home.html.erb</p>
-<%= link_to "logout", controller: "sessions", action: "logout"%>
+<h3>Agent Account</h3>
+<p>NAME : <%= @useraa.name%></p>
+<p>PHONE NUMBER : <%= @useraa.username%></p>
+<p>EMAIL :<%= @useraa.email%></p>
+<%debugger%>
+<%= link_to 'Edit', edit_session_path(@useraa) %>
+

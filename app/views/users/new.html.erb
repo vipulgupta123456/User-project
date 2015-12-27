@@ -1,9 +1,10 @@
-#testcheck
 <% @page_title = "UserAuth | Signup" %>
+<body>
 <div class="Sign_Form">
-  <h1>Sign Up</h1>
+  <h1>Agent Sign Up</h1>
   <%= form_for(@user) do |f| %>
-    <p> Username:</br> <%= f.text_field :username%> </p>
+    <p> Name:</br> <%= f.text_field :name%> </p>
+    <p> Phone Number:</br> <%= f.text_field :username%> </p>
     <p> Email:</br> <%= f.text_field :email%> </p>
     <p> Password:</br> <%= f.password_field :password%></p>
     <p> Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
@@ -17,3 +18,18 @@
     </ul>
   <% end %>
 </div>
+</body>
+<style>
+body{
+
+border: 1px solid black;
+background-color: rgba(0, 255, 0, 0.3);
+
+}
+.Sign_Form{
+margin-left: 500px;
+margin-top: 80px;
+margin-right :500px;
+margin-bottom:800px;
+}
+</style>

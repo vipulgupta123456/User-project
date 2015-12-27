@@ -1,12 +1,17 @@
 class User < ActiveRecord::Base
-	  
+	has_many :phones  , foreign_key: 'user_id'
 	  attr_accessor :password
 	   before_save :encrypt_password
       after_save :clear_password
       EMAIL_REGEX = /\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\z/i
-      validates :username, :presence => true, :uniqueness => true, :length => { :in => 3..20 }
+	  PHONE_REGEX = /\A(\+\d{1,3}[- ]?)?\d{10}\Z/i
+	  validates :name    , :presence => true 
+      validates :username, :presence => true, :uniqueness => true, :length => { :in => 3..20 }, :format => PHONE_REGEX
       validates :email, :presence => true, :format => EMAIL_REGEX
       validates :password, :confirmation => true #password_confirmation attr
+	  
+	  
+      
       validates_length_of :password, :in => 6..20, :on => :create
       
       def encrypt_password
@@ -19,12 +24,10 @@ class User < ActiveRecord::Base
       self.password = nil
  end
 
- def self.authenticate(username_or_email="", login_password="")
-  if  EMAIL_REGEX.match(username_or_email)    
-    user = User.find_by_email(username_or_email)
-  else
-    user = User.find_by_username(username_or_email)
-  end
+ def self.authenticate(username="", login_password="")
+ 
+    user = User.find_by_username(username)
+  
   if user && user.match_password(login_password)
     return user
   else

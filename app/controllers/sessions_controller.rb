@@ -5,10 +5,13 @@ before_filter :save_login_state, :only => [:login, :login_attempt]
 
   end
   def login_attempt
-    authorized_user = User.authenticate(params[:username_or_email],params[:login_password])
+    authorized_user = User.authenticate(params[:username],params[:login_password])
+	@useraa = authorized_user
+	$useraa = @useraa
     if authorized_user
-      flash[:notice] = "Wow Welcome again, you logged in as #{authorized_user.username}"
-      render "home"
+      flash[:notice] = " Hi #{authorized_user.name}"
+	  
+      render "home",:layout=> "sessions_inside"
        UserMailer.welcome_email(authorized_user).deliver
     else
       flash[:notice] = "Invalid Username or Password"
@@ -17,8 +20,11 @@ before_filter :save_login_state, :only => [:login, :login_attempt]
     end
   end
   def home
-
+     
   end
+  
+def edit
+end
 
   def profile
   	  @current_user = User.find session[:user_id] 
