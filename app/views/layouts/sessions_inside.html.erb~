@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UserAuth</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+  <%end%>
+  <p> Total Credits Earned: <%= $phonesaa %></p>
+  <p>Phone Number: <%= $useraa.username rescue nil %></p>
+<p> Email:<%= $useraa.email rescue nil %></p>
+    <ul>
+  <li><%= link_to "Profile", {controller: "sessions", action: "home"},:class => "abc"%></li>
+  <li><%= link_to "Phone Number Adding", {controller: "phones", action: "new"},:class => "abc"%></li>
+  <li><%= link_to "Account History", controller: "phones", action: "index" ,:class => "abc"%></li>
+
+  <li><%= link_to "logout", controller: "sessions", action: "logout",:class => "abc"%></li>
+</ul>
+  <%= yield%>
+ 
+ 
+
+</body>
+</html>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #4CAF50;
+}
+li {
+    border-right: 1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+	
+}
+.abc{
+     color:#fff!important;
+}
+
+</style>

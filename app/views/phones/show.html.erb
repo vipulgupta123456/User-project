@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+ <thead>
+    <tr>
+     <th>Date</th>
+    <th>Description</th> 
+    <th>Credits</th>
+	<th>Balance</th>
+    </tr>
+  </thead>
+<p>
+<tbody>
+<%start_date = Date.parse('2015-12-27')%>
+<%end_date = Date.parse('2015-12-30')%>
+
+<%(start_date..end_date).each do |day|%>
+
+<%@values =Array.new%>
+<% @phone. each do |f|%>
+<% if @phone.all.collect{|p|p.created_at.strftime("%d-%m-%y")==day}%>
+<% @values.push(f)%>
+<%end%>
+<%end%>
+
+<tr>
+<td>
+
+  <%= day%>
+
+</td>
+<td>
+
+<%=@values.count%>
+</td>
+<% if @phone.all.collect{|p|p.created_at.strftime("%d-%m-%y")==day}%>
+<td>
+<%= @values.count*3%>
+</td>
+<%else%>
+<td>
+<%= 0%>
+</td>
+<%end%>
+<td>
+<%= @phone.count*3%>
+</td>
+</tr>
+
+</br>
+<%@values = []%>
+<%end%>
+<%@values = []%>
+</tbody>
+  
+  </p>
+  </table>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+	margin-top:0px!important;
+	margin-bottom:500px;
+}
+th, td {
+    padding: 5px;
+}
+</style>

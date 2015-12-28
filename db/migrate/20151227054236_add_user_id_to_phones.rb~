@@ -1,0 +1,4 @@
+class AddUserIdToPhones < ActiveRecord::Migration
+  def change
+  end
+end

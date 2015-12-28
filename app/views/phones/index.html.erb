@@ -1,0 +1,29 @@
+<h1>Listing phones</h1>
+<% $phonesaa = (@phones.count)*3%>
+<table>
+  <thead>
+    <tr>
+     <th>Serial no.</th>
+    <th>Time</th> 
+    <th>Phone</th>
+	<th>Credits</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @phones.each do |phone| %>
+      <tr>
+	    <td><%= phone.id%></td>
+		<td><%= phone.created_at%></td>
+        <td><%= phone.phone %></td>
+		<td>3</td>
+                 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<p> Total Credits : <%= (@phones.count)*3 %>
+
+<br>
+
+<%= link_to 'New Phone', new_phone_path %>
